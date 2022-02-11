@@ -1,4 +1,4 @@
-# Learn OAuth 2.0 and OpenID Connect
+# OAuth 2.0 and OpenID Connect
 
 ## Identity use cases (pre-2010)
 
