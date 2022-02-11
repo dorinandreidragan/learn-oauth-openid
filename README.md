@@ -1,30 +1,47 @@
 # Learn OAuth 2.0 and OpenID Connect
 
-**OAuth 2.0** is a protocol designed for authorization.
-
-**OpenID Connect** is a protocol designed for authentication.
-
 ![OpenID OAuth HTTP stack](.attachments/openid-oauth-http-stack.png)
 
-## Identity use cases (pre-2010)
+**OAuth 2.0** is a protocol designed for authorization:
+
+- Granting access to your API
+- Getting access to user data in other systems
+
+**OpenID Connect** is a protocol designed for authentication:
+
+- Logging the user in
+- Making your accounts available in other systems
+
+## History
+
+### Identity use cases (pre-2010)
 
 - Simple login (forms and cookies)
 - Single sign-on across sites (SAML)
 - Mobile app login (???)
 - Delegated authorization (???)
 
-## Identity use cases (pre-2014)
+### Identity use cases (pre-2014)
 
 - Simple login (OAuth 2.0)
 - Single sign-on accross sites (OAuth 2.0)
 - Mobile app login (OAuth 2.0)
 - Delegeated authorization (OAuth 2.0)
 
-## OAuth 2.0 authorization code flow
+### Identity use cases (today)
+
+- Simple login (OpenID Connect)
+- Single sign-on accross sites (OpenID Connect)
+- Mobile app login (OpenID Connect)
+- Delegeated authorization (OAuth 2.0)
+
+## OAuth 2.0 Flows
+
+### OAuth 2.0 Authorization Code Flow
 
 ![OAuth example](.attachments/oauth-authorization-code-flow.svg)
 
-## OAuth 2.0 terminology
+#### OAuth 2.0 Terminology
 
 - Resource owner
   - The user who is requesting access to a resource
@@ -55,7 +72,7 @@
 - Front channel (less secure channel)
   - ex: Requests from the browser
 
-## Example of OAuth 2.0
+#### Example of OAuth 2.0 Authorization Code Flow
 
 - Starting the flow
 
@@ -107,18 +124,17 @@
   }
   ```
 
-## OAuth 2.0 flows
+### OAuth 2.0 Implicit Authorization Flow
 
-- Authorization code (front channel + back channel)
-
-- Implicit (front channel only)
   ![Implicit flow](.attachments/oauth-implicit-flow.svg)
+
+### Other OAuth 2.0 Flows
 
 - Resource owner password credentials (back channel only)
 
 - Client credentials (back channel only)
 
-## Problems with OAuth 2.0 for authentication
+### Problems with OAuth 2.0 for authentication
 
 - No standard way to get the user's information
 - Every implementation is a litlle different
@@ -128,20 +144,62 @@
 
 OpenID Connect is a little piece you have to add on top of OAuth to get propper authentication.
 
-### What OpenID Connects adds
+### What OpenID Connects Adds
 
 - ID token
 - UserInfo endpoint for getting more user information
 - Standard set of scopes
 - Standardized implementation
 
-### OpenID Connect authorization code flow
+### OpenID Connect Authorization Code Flow
 
 ![OpenID Connect authorization code flow](.attachments/openid-connect-authorization-code-flow.svg)
+
+### The Anatomy of JWT
+
+```json
+(Header)
+.
+{
+    "iss": "https://accounts.google.com",
+    "sub": "you@gmail.com",
+    "name": "John Doe",
+    "aud": "123456789",
+    "exp": 1300819380,
+    "iat": 1300818880,
+    "auth_time": 1300818880,
+}
+.
+(Signature)
+```
+
+## Which Grant Type (flow) to Use
+
+- Web application w/ server backend: authorization code flow
+
+  ![Example web app with server backend](.attachments/example-web-app-with-server-backend.svg)
+
+- Native mobile app: authorization code flow with PKCE
+
+  ![Example native mobile app](.attachments/example-native-mobile-app.svg)
+
+- JavaScript app (SPA) w/ API backend: implicit flow
+
+  ![Example spa with api backend](./.attachments/example-spa-with-api-backend.svg)
+
+- SSO with third party services
+
+  ![Example SSO with third party services](./.attachments/example-sso-with-third-party-services.svg)
+
+- Microservices and APIs: client credentials flow
 
 ## Tools
 
 OAuth debugger
+
+OpenID Connect debugger
+
+Encode or Decode JWTs - <http://www.jsonwebtoken.io>
 
 ## References
 
