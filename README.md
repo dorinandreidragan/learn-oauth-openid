@@ -1,5 +1,11 @@
 # Learn OAuth 2.0 and OpenID Connect
 
+**OAuth 2.0** is a protocol designed for authorization.
+
+**OpenID Connect** is a protocol designed for authentication.
+
+![OpenID OAuth HTTP stack](.attachments/openid-oauth-http-stack.png)
+
 ## Identity use cases (pre-2010)
 
 - Simple login (forms and cookies)
@@ -7,11 +13,16 @@
 - Mobile app login (???)
 - Delegated authorization (???)
 
-## Delegated authorization with OAuth 2.0
+## Identity use cases (pre-2014)
+
+- Simple login (OAuth 2.0)
+- Single sign-on accross sites (OAuth 2.0)
+- Mobile app login (OAuth 2.0)
+- Delegeated authorization (OAuth 2.0)
 
 ## OAuth 2.0 authorization code flow
 
-![OAuth example](.attachments/oauth-example.png)
+![OAuth example](.attachments/oauth-authorization-code-flow.svg)
 
 ## OAuth 2.0 terminology
 
@@ -96,12 +107,29 @@
   }
   ```
 
+## OAuth 2.0 flows
+
+- Authorization code (front channel + back channel)
+
+- Implicit (front channel only)
+  ![Implicit flow](.attachments/oauth-implicit-flow.svg)
+
+- Resource owner password credentials (back channel only)
+
+- Client credentials (back channel only)
+
+## Problems with OAuth 2.0 for authentication
+
+- No standard way to get the user's information
+- Every implementation is a litlle different
+- No common set of scopes
+
+## OpenID Connect
+
+OpenID Connect is a protocol designed for authentication.
+
+
 ## Tools
-
-Google as authorization server
-
-- Create a Client ID
-- Create a Client Secret
 
 OAuth debugger
 
@@ -110,4 +138,5 @@ OAuth debugger
 ## Credits
 
 Material is gather from the following sources:
+
 - [OAuth 2.0 and OpenID Connect (in plain English)](https://www.youtube.com/watch?v=996OiexHze0)
