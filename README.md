@@ -126,8 +126,18 @@
 
 ## OpenID Connect
 
-OpenID Connect is a protocol designed for authentication.
+OpenID Connect is a little piece you have to add on top of OAuth to get propper authentication.
 
+### What OpenID Connects adds
+
+- ID token
+- UserInfo endpoint for getting more user information
+- Standard set of scopes
+- Standardized implementation
+
+### OpenID Connect authorization code flow
+
+![OpenID Connect authorization code flow](.attachments/openid-connect-authorization-code-flow.svg)
 
 ## Tools
 
