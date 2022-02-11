@@ -1,6 +1,6 @@
 # Learn OAuth 2.0 and OpenID Connect
 
-![OpenID OAuth HTTP stack](.attachments/openid-oauth-http-stack.png)
+![OpenID OAuth HTTP stack](.attachments/oauth-openid-stack.svg)
 
 **OAuth 2.0** is a protocol designed for authorization:
 
